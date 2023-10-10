@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import axios from "axios";
 
 import ItemList from "../ItemList/ItemList"
 
@@ -6,14 +7,19 @@ const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([])
 
     useEffect(() => {
-        getProducts()
-          .then(response => {
-            setProducts(response);
-        })
-        .catch(error => {
-            console.error(error)
-        })
-    },[])
+        // Función para obtener los productos desde la FakeStore API
+        const fetchProducts = async () => {
+          try {
+            const response = await axios.get("https://fakestoreapi.com/products");
+            setProducts(response.data);            
+          } catch (error) {
+            console.error("Error fetching products:", error);
+          }
+        };
+    
+        // Llamar a la función para obtener los productos
+        fetchProducts();
+      }, []);
 
     return (
         <div>
@@ -23,4 +29,4 @@ const ItemListContainer = ({ greeting }) => {
     )
 }
 
-export default ItemListContainer
+export default ItemListContainer;
