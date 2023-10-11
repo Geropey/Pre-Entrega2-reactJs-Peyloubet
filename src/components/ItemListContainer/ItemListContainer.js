@@ -7,7 +7,7 @@ const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([])
 
     useEffect(() => {
-        // Función para obtener los productos desde la FakeStore API
+        
         const fetchProducts = async () => {
           try {
             const response = await axios.get("https://fakestoreapi.com/products");
@@ -17,7 +17,6 @@ const ItemListContainer = ({ greeting }) => {
           }
         };
     
-        // Llamar a la función para obtener los productos
         fetchProducts();
       }, []);
 

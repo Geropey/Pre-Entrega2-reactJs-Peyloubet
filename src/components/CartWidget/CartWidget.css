@@ -1,3 +1,5 @@
-.cart{
-    width: 50px
+.cartt{
+    position: fixed;
+    top: 10px;
+    right: 10px;
 }
