@@ -13,7 +13,7 @@ const ItemListContainer = ({ greeting }) => {
             const response = await axios.get("https://fakestoreapi.com/products");
             setProducts(response.data);            
           } catch (error) {
-            console.error("Error fetching products:", error);
+            console.error("Error fetch products:", error);
           }
         };
     
