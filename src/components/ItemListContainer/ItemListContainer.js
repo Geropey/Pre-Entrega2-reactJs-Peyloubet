@@ -1,31 +1,35 @@
-import { useEffect, useState } from "react"
-import axios from "axios";
-
-import ItemList from "../ItemList/ItemList"
+import { useEffect, useState } from "react";
+import { getProductsByCategory, getProducts } from "../../Mock/asyncMock";
+import ItemList from "../ItemList/ItemList";
+import { useParams } from "react-router-dom";
 
 const ItemListContainer = ({ greeting }) => {
-    const [products, setProducts] = useState([])
+  const { categoryId } = useParams();
+  console.log(categoryId);
 
-    useEffect(() => {
-        
-        const fetchProducts = async () => {
-          try {
-            const response = await axios.get("https://fakestoreapi.com/products");
-            setProducts(response.data);            
-          } catch (error) {
-            console.error("Error fetch products:", error);
-          }
-        };
-    
-        fetchProducts();
-      }, []);
+  const [products, setProducts] = useState([]);
+  console.log(products);
 
-    return (
-        <div>
-            <h1>{greeting}</h1>
-            <ItemList products={products}/>
-        </div>
-    )
-}
+  useEffect(() => {
+    const asyncFunc = categoryId ? getProductsByCategory : getProducts;
+
+    asyncFunc(categoryId)
+      .then((response) => {
+        setProducts(response);
+      })
+
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [categoryId]);
+
+  return (
+    <div>
+      <h1>{greeting}</h1>
+
+      <ItemList products={products} />
+    </div>
+  );
+};
 
 export default ItemListContainer;

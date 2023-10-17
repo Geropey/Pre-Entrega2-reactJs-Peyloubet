@@ -1,21 +1,22 @@
 import CartWidget from '../CartWidget/CartWidget';
 import { Link } from 'react-router-dom';
-import './NavBar.css'; // Importa los estilos CSS
+import './NavBar.css';
 
 const NavBar = () => {
   return (
     <nav>
       <h3>Kasnya</h3>
       <div>
-        <Link to="/remeras" className="button-link">
+        <Link to="/category/remeras" className="button-link">
           Remeras
         </Link>
-        <Link to="/tops" className="button-link">
+        <Link to="/category/tops" className="button-link">
           Tops
         </Link>
-        <Link to="/gorros" className="button-link">
+        <Link to="/category/gorros" className="button-link">
           Gorros
         </Link>
+        <link to="/inicio" className='button-link'/>
       </div>
       <CartWidget />
     </nav>
