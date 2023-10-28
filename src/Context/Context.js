@@ -1,40 +1,39 @@
 import { createContext, useState } from "react";
 
-
 export const CartContext = createContext({
-    Cart: []
-})
+  cart: [],
+});
 
 export const CartProvider = ({ children }) => {
-    const [Cart, setCart] = useState([])
+  const [cart, setCart] = useState([]);
 
-    console.log(Cart)
+  console.log(cart);
 
-    const addItem = (Item, quantity) => {
-        if(!isInCart(Item.id)) {
-            setCart(prev => [...prev, {...Item, quantity}])
-        } else {
-            console.error('El producto ya fue agregado')
-        }
+  const addItem = (Item, quantity) => {
+    if (!isInCart(Item.id)) {
+      setCart((prev) => [...prev, { ...Item, quantity }]);
+    } else {
+      console.error("El producto ya fue agregado");
     }
+  };
 
-    const removeItem = (itemId) => {
-        const cartUpdated = Cart.filter(prod => prod.id !== itemId)
-        setCart(cartUpdated)
-    }
+  const removeItem = (itemId) => {
+    const cartUpdated = cart.filter((prod) => prod.id !== itemId);
 
-    const clearCart = () => {
-        setCart([])
-    }
+    setCart(cartUpdated);
+  };
 
-    const isInCart = (itemId) => {
-        return Cart.some(prod => prod.id === itemId)
-    }
+  const clearCart = () => {
+    setCart([]);
+  };
 
-    return(
-        <CartContext.Provider value={{ Cart, addItem, removeItem, clearCart}}>
-            { children }
-        </CartContext.Provider>
-    )
-}
+  const isInCart = (itemId) => {
+    return cart.some((prod) => prod.id === itemId);
+  };
 
+  return (
+    <CartContext.Provider value={{ cart, addItem, removeItem, clearCart }}>
+      {children}
+    </CartContext.Provider>
+  );
+};
