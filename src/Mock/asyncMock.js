@@ -4,6 +4,7 @@ export const products = [
     name: "Producto 1",
     category: "tops",
     price: 999.99,
+    
   },
 
   {
@@ -11,6 +12,7 @@ export const products = [
     name: "Producto 2",
     category: "remeras",
     price: 49.99,
+    
   },
 
   {
@@ -38,7 +40,7 @@ export const products = [
     id: 6,
     name: "Producto 6",
     category: "gorros",
-    price: 799.99,
+    price: 7.99,
   },
 
   {
@@ -52,7 +54,7 @@ export const products = [
     id: 8,
     name: "Producto 8",
     category: "gorros",
-    price: 149.99,
+    price: 14.99,
   },
 
   {
@@ -66,7 +68,7 @@ export const products = [
     id: 10,
     name: "Producto 10",
     category: "remeras",
-    price: 3.99,
+    price: 40.99,
   },
 ];
 
