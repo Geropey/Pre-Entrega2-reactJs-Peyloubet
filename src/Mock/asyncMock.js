@@ -4,7 +4,7 @@ export const products = [
     name: "Producto 1",
     category: "tops",
     price: 999.99,
-    
+    stock: 100,
   },
 
   {
@@ -12,7 +12,7 @@ export const products = [
     name: "Producto 2",
     category: "remeras",
     price: 49.99,
-    
+    stock: 100,
   },
 
   {
@@ -20,6 +20,7 @@ export const products = [
     name: "Producto 3",
     category: "remeras",
     price: 199.99,
+    stock: 100,
   },
 
   {
@@ -27,6 +28,7 @@ export const products = [
     name: "Producto 4",
     category: "gorros",
     price: 29.99,
+    stock: 100,
   },
 
   {
@@ -34,6 +36,7 @@ export const products = [
     name: "Producto 5",
     category: "tops",
     price: 5.99,
+    stock: 100,
   },
 
   {
@@ -48,6 +51,7 @@ export const products = [
     name: "Producto 7",
     category: "tops",
     price: 39.99,
+    stock: 100,
   },
 
   {
@@ -81,6 +85,7 @@ export const getProducts = () => {
 };
 
 export const getProductById = (detailId) => {
+  console.log(detailId);
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(products.find((prod) => prod.id === detailId));
